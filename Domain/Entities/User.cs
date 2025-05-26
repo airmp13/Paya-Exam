@@ -16,7 +16,7 @@ namespace Domain.Entities
 
         [EmailAddress]
         public string Email { get; set; }
-
+        [Required]
         public string Address { get; set; }
 
         [Length(11,11)]
