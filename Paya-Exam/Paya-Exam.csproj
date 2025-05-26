@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AppDBContext\Infrastructure.csproj" />
+    <ProjectReference Include="..\ApplicationLayer\Application.csproj" />
   </ItemGroup>
 
 </Project>
