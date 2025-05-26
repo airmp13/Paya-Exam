@@ -1,4 +1,5 @@
-﻿using Application.Users.Commands;
+﻿using Application.Products.Commands;
+using Application.Users.Commands;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,27 @@ namespace Application.Common
 				Address = command.Address,
 				PhoneNumber = command.PhoneNumber,
 				
+			};
+		}
+
+		public static Product ProductCommandsToProduct(AddProductCommand command)
+		{
+			return new Product
+			{
+				Name = command.Name,
+				Price = command.Price,
+				IsFragile = command.IsFragile
+			};
+		}
+
+		public static Product ProductCommandsToProduct(UpdateProductCommand command)
+		{
+			return new Product
+			{
+				Id=command.Id,
+				Name = command.Name,
+				Price = command.Price,
+				IsFragile = command.IsFragile
 			};
 		}
 	}
