@@ -14,11 +14,11 @@ namespace Infrastructure.Repositories
     {
         private readonly AppDBContext _appDBContext = appDBContext;
 
-        public async Task<User> GetUserWithOrdersAsync(int userId)
+        public async Task<User> GetUserWithOrdersAsync(int userId, CancellationToken cancellationToken)
         {
             try
             {
-                return await _appDBContext.Users.Include(u => u.Orders).FirstOrDefaultAsync(u => u.Id == userId);
+                return await _appDBContext.Users.Include(u => u.Orders).FirstOrDefaultAsync(u => u.Id == userId,cancellationToken);
             }
             catch (Exception e)
             {

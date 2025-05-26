@@ -14,12 +14,12 @@ namespace Infrastructure.Repositories
         private readonly AppDBContext _appDBContext = appDBContext;
         private readonly DbSet<T> _dbSet = appDBContext.Set<T>();
 
-        public async Task<bool> Add(T entity)
+        public async Task<bool> Add(T entity, CancellationToken cancellationToken)
         {
             try
             {
                 await _dbSet.AddAsync(entity);
-                return await _appDBContext.SaveChangesAsync() > 0 ? true : false;
+                return await _appDBContext.SaveChangesAsync(cancellationToken) > 0 ? true : false;
 
             }
             catch (Exception e)
@@ -29,12 +29,12 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public async Task<bool> Update(T entity)
+        public async Task<bool> Update(T entity, CancellationToken cancellationToken)
         {
             try
             {
                 _dbSet.Update(entity);
-                return await _appDBContext.SaveChangesAsync() > 0 ? true : false;
+                return await _appDBContext.SaveChangesAsync(cancellationToken) > 0 ? true : false;
             }
             catch (Exception e)
             {
@@ -43,12 +43,12 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public async Task<bool> Delete(T entity)
+        public async Task<bool> Delete(T entity, CancellationToken cancellationToken)
         {
             try
             {
                 _dbSet.Remove(entity);
-                return await _appDBContext.SaveChangesAsync() > 0 ? true : false;
+                return await _appDBContext.SaveChangesAsync(cancellationToken) > 0 ? true : false;
 
             }
             catch (Exception e)
@@ -59,11 +59,11 @@ namespace Infrastructure.Repositories
 
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken)
         {
             try
             {
-                return await _dbSet.ToListAsync();
+                return await _dbSet.ToListAsync(cancellationToken);
 
             }
             catch (Exception e)
@@ -73,11 +73,11 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id, CancellationToken cancellationToken)
         {
             try
             {
-                return await _dbSet.FindAsync(id);
+                return await _dbSet.FindAsync(id,cancellationToken);
             }
             catch (Exception e)
             {

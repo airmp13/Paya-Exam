@@ -11,6 +11,6 @@ namespace Domain.RepositoriesInterfaces
     {
         bool IsOrderTimeValidAsync(DateTime orderTime);
         bool IsOrderPriceValidAsync(int totalPrice);
-        Task<Order> GetOrderWithDetailsAsync(int id);
+        Task<Order> GetOrderWithDetailsAsync(int id, CancellationToken cancellationToken);
     }
 }

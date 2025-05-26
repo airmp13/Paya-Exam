@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Domain.RepositoriesInterfaces
 {
-    public interface IUserRepository : IGenericRepository<User>
-    {
-        Task<User> GetUserWithOrdersAsync(int userId, CancellationToken cancellationToken);
-
-    }
+	public interface IOrderItemRepository : IGenericRepository<OrderItem>
+	{
+		Task<int> CalculateTotalPriceAsync(IEnumerable<OrderItem> orderItems, CancellationToken cancellationToken);
+	}
 }

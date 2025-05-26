@@ -15,11 +15,11 @@ namespace Infrastructure.Repositories
         private readonly AppDBContext _appDBContext = appDBContext;
 
         private const int MinOrderPrice = 500000;
-        public async Task<Order> GetOrderWithDetailsAsync(int id)
+        public async Task<Order> GetOrderWithDetailsAsync(int id, CancellationToken cancellationToken)
         {
             try
             {
-                return await _appDBContext.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).FirstOrDefaultAsync(o => o.Id == id);
+                return await _appDBContext.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).FirstOrDefaultAsync(o => o.Id == id,cancellationToken);
             }
             catch (Exception e)
             {
