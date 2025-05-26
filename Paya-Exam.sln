@@ -5,19 +5,19 @@ VisualStudioVersion = 17.12.35514.174 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paya-Exam", "Paya-Exam\Paya-Exam.csproj", "{DA051D4B-F936-4575-A01C-C79515B9A5DA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5E684786-44A9-49DF-883B-968B0AD9E2B6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core Layer", "Core Layer", "{5E684786-44A9-49DF-883B-968B0AD9E2B6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{6597D095-D130-4CE3-A19D-84CF62BFBA8B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Layer", "Application Layer", "{6597D095-D130-4CE3-A19D-84CF62BFBA8B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B17B23B4-BAFF-42FF-AF32-04310AEEA434}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation Layer", "Presentation Layer", "{B17B23B4-BAFF-42FF-AF32-04310AEEA434}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{F2694B6A-291D-4982-AAAF-12DDAA3C3EC5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure Layer", "Infrastructure Layer", "{F2694B6A-291D-4982-AAAF-12DDAA3C3EC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationLayer", "ApplicationLayer\ApplicationLayer.csproj", "{3972DA4D-C452-4AFA-AF19-91FDE2B95B75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "ApplicationLayer\Application.csproj", "{3972DA4D-C452-4AFA-AF19-91FDE2B95B75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{8F758436-B2EB-4C4A-A9E8-57BCAF2CD758}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationDBContext", "AppDBContext\ApplicationDBContext.csproj", "{8FAFDAA6-3ABE-4FA1-985D-6A9D61552AA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "AppDBContext\Infrastructure.csproj", "{8FAFDAA6-3ABE-4FA1-985D-6A9D61552AA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
