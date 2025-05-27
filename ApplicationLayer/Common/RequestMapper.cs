@@ -1,4 +1,5 @@
-﻿using Application.Products.Commands;
+﻿using Application.Orders.Commands;
+using Application.Products.Commands;
 using Application.Users.Commands;
 using Domain.Entities;
 using System;
@@ -53,6 +54,18 @@ namespace Application.Common
 				Name = command.Name,
 				Price = command.Price,
 				IsFragile = command.IsFragile
+			};
+		}
+
+		public static Order OrderCommandsToOrder(AddOrderCommand command)
+		{
+			return new Order
+			{
+				OrderDate = command.OrderDate,
+				UserId = command.UserId,
+				DeliveryMethod = command.DeliveryMethod,
+				TotalPrice = command.TotalPrice
+
 			};
 		}
 	}
