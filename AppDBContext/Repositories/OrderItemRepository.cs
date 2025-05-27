@@ -16,16 +16,25 @@ namespace Infrastructure.Repositories
 
 		public async Task<int> CalculateTotalPriceAsync(IEnumerable<OrderItem> orderItems, CancellationToken cancellationToken)
 		{
-			var productIds = orderItems.Select(i => i.ProductId).ToList();
-			var products = await _appDBContext.Products
-				.Where(p => productIds.Contains(p.Id))
-				.ToListAsync(cancellationToken);
-
-			return orderItems.Sum(item =>
+			try
 			{
-				var product = products.First(p => p.Id == item.ProductId);
-				return product.Price * item.Quantity;
-			});
+				var productIds = orderItems.Select(i => i.ProductId).ToList();
+				var products = await _appDBContext.Products.AsNoTracking()
+					.Where(p => productIds.Contains(p.Id))
+					.ToListAsync(cancellationToken);
+
+				return orderItems.Sum(item =>
+				{
+					var product = products.First(p => p.Id == item.ProductId);
+					return product.Price * item.Quantity;
+				});
+			}
+			catch (Exception e)
+			{
+
+				throw e;
+			}
+			
 		}
 	}
 }
