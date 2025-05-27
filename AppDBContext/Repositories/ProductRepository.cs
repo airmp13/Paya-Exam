@@ -1,6 +1,7 @@
 ﻿using ApplicationDBContext;
 using Domain.Entities;
 using Domain.RepositoriesInterfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,19 @@ namespace Infrastructure.Repositories
     {
         private readonly AppDBContext _appDBContext = appDBContext;
 
+		public async Task<bool> ContainsFragileItemsAsync(IEnumerable<int> productIds)
+		{
+			try
+			{
+				return await _appDBContext.Products.AsNoTracking()
+				.Where(p => productIds.Contains(p.Id))
+				.AnyAsync(p => p.IsFragile);
+			}
+			catch (Exception e)
+			{
 
-        
-    }
+				throw e;
+			}
+		}
+	}
 }
