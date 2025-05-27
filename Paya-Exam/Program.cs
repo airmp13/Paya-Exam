@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Application;
+using System.Text.Json.Serialization;
 
 namespace Paya_Exam
 {
@@ -19,7 +20,11 @@ namespace Paya_Exam
 			// Add services to the container.
 			
 
-			builder.Services.AddControllers();
+			builder.Services.AddControllers().AddJsonOptions(opt =>
+			{
+				opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+				opt.JsonSerializerOptions.WriteIndented = true;
+			}); ;
 
 
 			#region DBContext Injection
