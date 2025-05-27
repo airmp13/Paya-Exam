@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
         {
             try
             {
-                return await _appDBContext.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).FirstOrDefaultAsync(o => o.Id == id,cancellationToken);
+                return await _appDBContext.Orders.AsNoTracking().Include(o => o.OrderItems).ThenInclude(oi => oi.Product).FirstOrDefaultAsync(o => o.Id == id,cancellationToken);
             }
             catch (Exception e)
             {
