@@ -9,5 +9,7 @@ namespace Domain.RepositoriesInterfaces
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-    }
+        Task<bool> ContainsFragileItemsAsync(IEnumerable<int> productIds);
+
+	}
 }
